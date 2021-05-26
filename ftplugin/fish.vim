@@ -1,7 +1,7 @@
 setlocal comments=:#
 setlocal commentstring=#%s
 setlocal define=\\v^\\s*function>
-setlocal foldexpr=fish#Fold()
+" setlocal foldexpr=fish#Fold()
 setlocal formatoptions+=ron1
 setlocal formatoptions-=t
 setlocal include=\\v^\\s*\\.>
@@ -13,18 +13,18 @@ if v:version ># 703 || v:version ==# 703 && has('patch541')
     setlocal formatoptions+=j
 endif
 
-if executable('fish_indent')
-    setlocal formatexpr=fish#Format()
-endif
+" if executable('fish_indent')
+"     setlocal formatexpr=fish#Format()
+" endif
 
-if executable('fish')
-    setlocal omnifunc=fish#Complete
-    for s:path in split(system("fish -c 'echo $fish_function_path'"))
-        execute 'setlocal path+='.s:path
-    endfor
-else
-    setlocal omnifunc=syntaxcomplete#Complete
-endif
+" if executable('fish')
+"     setlocal omnifunc=fish#Complete
+"     for s:path in split(system("fish -c 'echo $fish_function_path'"))
+"         execute 'setlocal path+='.s:path
+"     endfor
+" else
+"     setlocal omnifunc=syntaxcomplete#Complete
+" endif
 
 " Use the 'man' wrapper function in fish to include fish's man pages.
 " Have to use a script for this; 'fish -c man' would make the the man page an
